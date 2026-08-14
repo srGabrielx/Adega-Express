@@ -2,17 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Adega Express | Bebida Trincando em 15 Minutos na Sua Porta</title>
-  <meta name="description" content="Peça cervejas trincando a -2°C, combos, whiskies 12 anos, vinhos e petiscos com entrega ultrarrápida em até 15 minutos. WhatsApp fácil e Pix imediato.">
-  <meta name="keywords" content="adega express, delivery de bebidas 15 minutos, cerveja gelada entrega rápida, combo de gin, whisky, disk bebidas são paulo">
-  
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Adega Express | Entrega de Bebidas em 15 Minutos">
-  <meta property="og:description" content="Sua bebida favorita trincando de gelada na sua porta em 15 minutos. Peça agora!">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80">
+  <meta name="description" content="Peça cervejas trincando a -2°C, combos, whiskies 12 anos, vinhos e petiscos com entrega ultrarrápida em até 15 minutos em Marabá - PA.">
   <meta name="theme-color" content="#dc2626">
+
+  <!-- PWA Manifest & Icons -->
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=192&q=80">
 
@@ -20,9 +15,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
-<body style="background: #f4f5f7;">
+<body>
 
-  <!-- SPLASH SCREEN (TELA DE LOGO) -->
+  <!-- SPLASH SCREEN (TELA DE LOGO NATIVA) -->
   <div id="splash-screen">
     <div class="splash-logo">DEGA</div>
   </div>
@@ -39,11 +34,11 @@
     <span>ENTREGA EXPRESS: Peça agora e receba <strong class="ice-text">TRINCANDO A -2°C</strong> em até 15 minutos!</span>
   </div>
 
-  <!-- CABEÇALHO / NAVBAR -->
+  <!-- CABEÇALHO / NAVBAR STICKY -->
   <header class="site-header">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo" title="Adega Express - Home">
+        <a href="index.html" class="brand-logo" title="Adega Express - Home">
           <div class="brand-icon-box">🍺</div>
           <div class="brand-texts">
             <span class="brand-title">ADEGA <span class="brand-accent">EXPRESS</span></span>
@@ -60,7 +55,8 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             <span>Pedidos</span>
           </a>
-          <button class="btn-nav-cart" id="nav-cart-btn" onclick="cart.goToCheckout()" title="Abrir Carrinho">
+          
+          <button type="button" class="btn-nav-cart" id="nav-cart-btn" onclick="cart.goToCheckout()" title="Abrir Carrinho">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -90,50 +86,54 @@
             </h1>
 
             <p class="hero-description">
-              Cervejas estalando a -2°C, combos completos com gelo, whiskies 12 anos e destilados originais. Pediu no site, chegou rapidinho pelo WhatsApp.
+              Cervejas estalando a -2°C, combos completos com gelo, whiskies 12 anos e destilados originais. Pediu no site, chegou rapidinho.
             </p>
 
             <div class="hero-cta-group">
-              <button class="btn btn-primary-red" onclick="scrollToCatalog()">
+              <button type="button" class="btn btn-primary-red" onclick="scrollToCatalog()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                 <span>Pedir Bebidas Agora</span>
               </button>
 
-              <a href="#" class="btn btn-whatsapp-hero btn-direct-whatsapp" target="_blank" rel="noopener">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                <span>Falar no WhatsApp</span>
+              <a href="https://wa.me/5511964589578?text=Ol%C3%A1%21+Gostaria+de+tirar+uma+d%C3%BAvida+sobre+as+bebidas." class="btn btn-outline-dark" target="_blank" rel="noopener">
+                <span>Dúvidas no WhatsApp</span>
               </a>
             </div>
           </div>
 
-          <!-- HOT COMBO HIGHLIGHT CARD -->
-          <div class="hero-promo-card">
-            <div class="hero-promo-badge">🔥 COMBO CAMPEÃO DE HOJE</div>
-            <div class="hero-promo-img-wrap">
-              <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Combo Gin Tanqueray" />
-            </div>
-            <div class="hero-promo-info">
-              <h3>Kit Gin Tanqueray + 4 Red Bull + Gelo Coco</h3>
-              <p>1 Gin 750ml + 4 Energéticos Red Bull + 2 Gelos de Coco saborizados prontos para servir na hora.</p>
-              <div class="hero-promo-bottom">
-                <div class="hero-promo-price">
-                  <span class="old-price">De R$ 169,90</span>
-                  <span class="current-price">R$ 139,90</span>
-                </div>
-                <button class="btn btn-primary-red" onclick="cart.addItem('combo-gin-tanqueray')">
-                  <span>Pedir Combo</span>
-                </button>
+          <!-- CARD DESTAQUE HERO -->
+          <div class="hero-visual-card">
+            <span class="hero-badge-subzero">❄️ DESTAQUE SUBZERO -2°C</span>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.4rem;">Combo Gin Tanqueray + 4 Red Bull</h3>
+            <p style="font-size: 0.85rem; color: var(--color-gray); margin-bottom: 0.85rem;">
+              1 Gin London Dry 750ml + 4 Latas Red Bull + 2 Gelos de Coco saborizados prontos para servir.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="font-size: 0.8rem; color: var(--color-gray-light); text-decoration: line-through;">R$ 169,90</span>
+                <div style="font-size: 1.4rem; font-weight: 900; color: var(--color-red);">R$ 139,90</div>
               </div>
+              <button type="button" class="btn btn-primary-red" onclick="cart.addItem('combo-gin-tanqueray')" style="padding: 0.6rem 1rem;">
+                + Adicionar
+              </button>
+            </div>
+            <div class="hero-delivery-highlight">
+              <span style="font-size: 0.82rem; font-weight: 700; color: var(--color-black);">Tempo de Entrega Médio:</span>
+              <span class="time-val">⚡ 15 min</span>
             </div>
           </div>
 
         </div>
+      </div>
+    </section>
 
-        <!-- FAIXA DE BENEFÍCIOS -->
+    <!-- FAIXA DE BENEFÍCIOS -->
+    <section class="features-strip-section">
+      <div class="container">
         <div class="features-strip">
           <div class="feature-item">
             <div class="feature-icon">⚡</div>
-            <div class="feature-text">
+            <div class="feature-texts">
               <h4>Entrega em 15 Min</h4>
               <p>Motoboys dedicados na sua região</p>
             </div>
@@ -141,15 +141,15 @@
 
           <div class="feature-item">
             <div class="feature-icon">❄️</div>
-            <div class="feature-text">
+            <div class="feature-texts">
               <h4>Bebida a -2°C</h4>
-              <p>Câmara fria e transporte térmico</p>
+              <p>Câmara fria e bolsa térmica</p>
             </div>
           </div>
 
           <div class="feature-item">
             <div class="feature-icon">💳</div>
-            <div class="feature-text">
+            <div class="feature-texts">
               <h4>Pix & Cartões</h4>
               <p>Pague no Pix ou na maquininha</p>
             </div>
@@ -157,7 +157,7 @@
 
           <div class="feature-item">
             <div class="feature-icon">🌙</div>
-            <div class="feature-text">
+            <div class="feature-texts">
               <h4>Plantão Noturno</h4>
               <p>Aberto até de madrugada</p>
             </div>
@@ -166,117 +166,70 @@
       </div>
     </section>
 
-    <!-- CATÁLOGO DE PRODUTOS ORGANIZADO EM FILEIRAS -->
-    <section class="catalog-section" id="catalogo">
+    <!-- CATÁLOGO DE PRODUTOS MOBILE-FIRST -->
+    <section class="catalog-controls-section" id="catalog-section">
       <div class="container">
         
-        <div class="section-header">
-          <span class="section-tag">CARDÁPIO COMPLETO</span>
-          <h2 class="section-title">Escolha suas Bebidas Favoritas</h2>
-          <p class="section-desc">Selecione os produtos nas fileiras abaixo ou use a busca para encontrar o que precisa em segundos.</p>
+        <!-- BUSCA EM TEMPO REAL -->
+        <div class="search-box-wrap">
+          <svg class="search-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search-products" class="search-input" placeholder="Buscar Heineken, Gin, Whisky, Red Bull, Gelo...">
+          <button type="button" id="search-clear-btn" class="search-clear-btn" title="Limpar busca">✕</button>
         </div>
 
-        <!-- CONTROLES, BUSCA E FILTROS -->
-        <div class="catalog-controls">
-          <div class="search-bar-wrap">
-            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input type="text" id="search-input" class="search-input" placeholder="Buscar por Heineken, Gin, Whisky, Vinho, Red Bull, Gelo...">
-            <button id="clear-search-btn" class="clear-search-btn" title="Limpar busca">✕</button>
-          </div>
-
-          <!-- Pílulas de Categorias -->
-          <div class="category-pills" id="category-pills-container">
-            <!-- Renderizado via JS -->
+        <!-- PÍLULAS DE CATEGORIAS COM SCROLL-SNAP ISOLADO -->
+        <div class="category-pills-wrap">
+          <div class="category-pills" id="category-pills">
+            <!-- Renderizado dinamicamente via app.js -->
           </div>
         </div>
 
-        <div class="catalog-meta-bar">
-          <span id="products-count-label">Carregando catálogo...</span>
-          <span class="flash-highlight">⚡ Entrega express ativa em toda a região</span>
-        </div>
-
-        <!-- CONTAINER DE FILEIRAS / VITRINES DE PRODUTOS -->
-        <div id="catalog-shelves-container">
+        <!-- CONTAINER DE PRODUTOS -->
+        <div id="catalog-products-container" style="margin-top: 1rem;">
           <!-- Renderizado dinamicamente via app.js -->
         </div>
 
       </div>
     </section>
-
-    <!-- SEÇÃO DE ENTREGAS & BAIRROS -->
-    <section class="delivery-info-section" id="entregas">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">COBERTURA FLASH</span>
-          <h2 class="section-title">Bairros Atendidos & Tempo de Entrega</h2>
-          <p class="section-desc">Entrega direta com bolsas térmicas para que suas cervejas cheguem no ponto perfeito.</p>
-        </div>
-
-        <div class="neighborhoods-grid" id="neighborhoods-grid">
-          <!-- Renderizado via JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq-section" id="duvidas">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">TIRE SUAS DÚVIDAS</span>
-          <h2 class="section-title">Perguntas Frequentes</h2>
-        </div>
-
-        <div class="faq-list">
-          <div class="faq-item active">
-            <button class="faq-question">
-              <span>Como funciona a entrega em 15 minutos?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Assim que você finaliza seu pedido aqui pelo site e envia para o nosso WhatsApp, nosso sistema separa imediatamente suas bebidas na câmara fria e despacha com o motoboy mais próximo para garantir a chegada em até 15 minutos!
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>A bebida realmente chega trincando de gelada?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Com certeza! Nossas cervejas e energéticos ficam armazenados a -2°C e são transportados em caixas térmicas com gelo seco, garantindo temperatura de consumo imediato ao abrir.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Quais são as formas de pagamento aceitas?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Aceitamos <strong>Pix</strong> (chave copia e cola instantânea no checkout), <strong>Cartões de Débito e Crédito</strong> (o motoboy leva a maquininha até você) e <strong>Dinheiro</strong> com troco garantido.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <div class="floating-actions-wrap">
+    <a href="https://wa.me/5511964589578?text=Ol%C3%A1%21+Gostaria+de+tirar+uma+d%C3%BAvida+sobre+as+bebidas." class="floating-whatsapp" target="_blank" rel="noopener" title="Falar no WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+  </div>
+
+  <!-- MODAL DE VERIFICAÇÃO DE IDADE (+18) -->
+  <div class="age-gate-modal" id="age-gate-modal">
+    <div class="age-gate-card">
+      <div class="age-gate-icon">18+</div>
+      <h2>Você é maior de 18 anos?</h2>
+      <p>
+        Este site comercializa bebidas alcoólicas destinadas exclusivamente para maiores de 18 anos.
+      </p>
+      <div class="age-gate-actions">
+        <button type="button" class="btn btn-age-confirm" id="age-gate-confirm">
+          Sim, sou maior de 18 anos
+        </button>
+        <button type="button" class="btn btn-age-deny" id="age-gate-deny">
+          Não, sou menor de idade
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- RODAPÉ -->
   <footer class="site-footer">
     <div class="container">
-      
-      <div class="legal-age-warning">
-        🔞 <strong>AVISO LEGAL:</strong> A venda e entrega de bebidas alcoólicas é proibida para menores de 18 anos (Art. 81 - Lei 8.069/1990). Beba com responsabilidade. Se beber, não dirija.
-      </div>
-
       <div class="footer-grid">
         <div class="footer-brand">
           <h3 class="store-name">ADEGA EXPRESS</h3>
           <p class="store-tagline">Bebida Trincando em 15 Minutos na Sua Porta</p>
-          <p>O seu delivery de bebidas favorito com atendimento rápido e entrega impecável todos os dias.</p>
+          <p>O seu delivery de bebidas favorito com atendimento rápido e entrega impecável todos os dias em Marabá - PA.</p>
         </div>
 
         <div class="footer-column">
@@ -307,37 +260,6 @@
       </div>
     </div>
   </footer>
-
-  
-
-  <!-- BOTÕES FLUTUANTES -->
-  <div class="floating-actions-wrap">
-
-
-    <a href="#" class="floating-btn floating-whatsapp btn-direct-whatsapp" target="_blank" rel="noopener" title="Falar no WhatsApp">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-      <span>WhatsApp</span>
-    </a>
-  </div>
-
-  <!-- MODAL DE VERIFICAÇÃO DE IDADE (+18) -->
-  <div class="age-gate-modal" id="age-gate-modal">
-    <div class="age-gate-card">
-      <div class="age-gate-icon">18+</div>
-      <h2>Você é maior de 18 anos?</h2>
-      <p>
-        Este site comercializa bebidas alcoólicas destinadas exclusivamente para maiores de 18 anos.
-      </p>
-      <div class="age-gate-actions">
-        <button class="btn btn-age-confirm" id="age-gate-confirm">
-          Sim, sou maior de 18 anos
-        </button>
-        <button class="btn btn-age-deny" id="age-gate-deny">
-          Não, sou menor de idade
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- CONTAINER DE NOTIFICAÇÕES (TOASTS) -->
   <div class="toast-container" id="toast-container"></div>

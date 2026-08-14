@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meus Pedidos | Adega Express</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Meus Pedidos | Adega Express 15 Min</title>
   <meta name="theme-color" content="#dc2626">
 
   <!-- Estilos CSS -->
@@ -11,17 +11,19 @@
   <link rel="stylesheet" href="css/components.css">
   <style>
     .history-container {
-      max-width: 800px;
-      margin: 2rem auto;
+      max-width: 680px;
+      margin: 1.5rem auto 3rem;
       padding: 0 1rem;
+      width: 100%;
     }
 
     .history-card {
       background: #ffffff;
+      border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
-      padding: 1.5rem;
-      margin-bottom: 1rem;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
       border-left: 4px solid var(--color-green);
     }
 
@@ -29,25 +31,26 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
       border-bottom: 1px solid var(--color-border);
-      padding-bottom: 0.75rem;
+      padding-bottom: 0.65rem;
     }
 
     .history-id {
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      color: var(--color-black);
     }
 
     .history-date {
       color: var(--color-gray);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     .history-status {
       background: var(--color-green-light);
       color: var(--color-green);
-      padding: 0.2rem 0.6rem;
+      padding: 0.2rem 0.65rem;
       border-radius: var(--radius-full);
       font-size: 0.75rem;
       font-weight: 800;
@@ -56,43 +59,30 @@
     .history-item-row {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
+      margin-bottom: 0.45rem;
+      font-size: 0.88rem;
     }
 
     .history-item-qty {
-      font-weight: 700;
-      margin-right: 0.5rem;
-      color: var(--color-gray);
+      font-weight: 800;
+      margin-right: 0.4rem;
+      color: var(--color-red);
     }
 
     .history-total {
-      margin-top: 1rem;
+      margin-top: 0.85rem;
       padding-top: 0.75rem;
       border-top: 1px dashed var(--color-border);
       display: flex;
       justify-content: space-between;
       font-weight: 800;
-      font-size: 1.1rem;
-    }
-
-    .history-empty {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: #fff;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .history-empty h3 {
-      margin: 1rem 0;
-      color: var(--color-black);
+      font-size: 1.05rem;
     }
   </style>
 </head>
-<body style="background: #f4f5f7;">
+<body>
 
-  <!-- CABEÇALHO -->
+  <!-- CABEÇALHO / NAVBAR STICKY -->
   <header class="site-header">
     <div class="container">
       <div class="nav-wrapper">
@@ -100,22 +90,33 @@
           <div class="brand-icon-box">🍺</div>
           <div class="brand-texts">
             <span class="brand-title">ADEGA <span class="brand-accent">EXPRESS</span></span>
+            <span class="brand-subtitle">Delivery 15 Min • Subzero</span>
           </div>
         </a>
-        <button class="btn-voltar" onclick="window.location.href='index.html'" style="background:var(--color-black); color:#fff; border:none; padding:0.5rem 1rem; border-radius:var(--radius-sm); cursor:pointer; font-weight:700;">
-          ← Voltar ao Cardápio
+        <button type="button" class="btn-back-catalog" onclick="window.location.href='index.html'">
+          ← Cardápio
         </button>
       </div>
     </div>
   </header>
 
   <main class="history-container">
-    <h2 style="margin-bottom: 1.5rem; font-weight: 900;">📋 Histórico de Pedidos</h2>
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+      <h2 style="font-size: 1.35rem; font-weight: 900;">📋 Meus Pedidos</h2>
+    </div>
 
     <div id="history-list">
       <!-- Pedidos renderizados aqui via JS -->
     </div>
   </main>
+
+  <footer class="site-footer" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>© <span id="current-year">2026</span> Adega Express. Todos os direitos reservados.</div>
+      </div>
+    </div>
+  </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -124,30 +125,33 @@
 
       if (orderHistory.length === 0) {
         historyList.innerHTML = `
-          <div class="history-empty">
-            <div style="font-size: 4rem;">📦</div>
-            <h3>Você ainda não tem pedidos</h3>
-            <p style="color: var(--color-gray); margin-bottom: 1.5rem;">Quando você fizer um pedido, ele aparecerá aqui.</p>
-            <button class="btn btn-primary-red" onclick="window.location.href='index.html'">Fazer meu primeiro pedido</button>
+          <div class="empty-cart-view">
+            <div class="empty-cart-icon">📦</div>
+            <h3>Nenhum pedido realizado ainda</h3>
+            <p>Seus pedidos express finalizados aparecerão aqui automaticamente.</p>
+            <button type="button" class="btn btn-primary-red" onclick="window.location.href='index.html'">
+              Fazer meu primeiro pedido
+            </button>
           </div>
         `;
         return;
       }
 
-      // Ordenar do mais recente para o mais antigo
-      orderHistory.reverse().forEach(order => {
+      orderHistory.slice().reverse().forEach(order => {
         const dateObj = new Date(order.date);
         const dateStr = dateObj.toLocaleDateString('pt-BR') + ' às ' + dateObj.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
         
         let itemsHtml = '';
-        order.items.forEach(item => {
-          itemsHtml += `
-            <div class="history-item-row">
-              <div><span class="history-item-qty">${item.qty}x</span> ${item.name}</div>
-              <div>R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</div>
-            </div>
-          `;
-        });
+        if (Array.isArray(order.items)) {
+          order.items.forEach(item => {
+            itemsHtml += `
+              <div class="history-item-row">
+                <div><span class="history-item-qty">${item.qty}x</span> ${item.name}</div>
+                <div>R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</div>
+              </div>
+            `;
+          });
+        }
 
         const card = document.createElement("div");
         card.className = "history-card";
@@ -159,12 +163,12 @@
             </div>
             <div class="history-status">${order.status || 'Concluído'}</div>
           </div>
-          <div class="history-items">
+          <div class="history-items" style="margin: 0.65rem 0;">
             ${itemsHtml}
           </div>
           <div class="history-total">
             <span>Total Pago</span>
-            <span style="color: var(--color-red);">R$ ${order.total.toFixed(2).replace('.', ',')}</span>
+            <span style="color: var(--color-red);">R$ ${Number(order.total || 0).toFixed(2).replace('.', ',')}</span>
           </div>
         `;
         historyList.appendChild(card);
