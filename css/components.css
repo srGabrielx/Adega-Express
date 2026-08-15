@@ -66,16 +66,24 @@
 }
 
 /* ==========================================================================
-   PÍLULAS DE CATEGORIAS (ROLAGEM HORIZONTAL ISOLADA)
+   PÍLULAS DE CATEGORIAS (STICKY COM ROLAGEM HORIZONTAL ISOLADA)
    ========================================================================== */
 .category-pills-wrap {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 56px;
+  z-index: 95;
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   width: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 0.25rem 0 0.75rem;
-  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(228, 228, 231, 0.6);
 }
 
 .category-pills-wrap::-webkit-scrollbar {
