@@ -16,14 +16,14 @@ const CATEGORIES = [
   { id: "gelo-petiscos", name: "Gelo & Petiscos", icon: "🧊" }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
+function startApp() {
   // SPLASH SCREEN LOGIC
   const splash = document.getElementById("splash-screen");
   if (splash) {
     setTimeout(() => {
       splash.classList.add("hidden");
       setTimeout(() => splash.remove(), 400);
-    }, 1000);
+    }, 800);
   }
 
   initAgeGate();
@@ -32,7 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCatalog();
   initSearchAndFilters();
   initHeaderScroll();
-});
+}
+
+// Inicialização segura que previne condição de corrida de DOMContentLoaded
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", startApp);
+} else {
+  startApp();
+}
 
 // --- VERIFICAÇÃO DE IDADE (18+) ---
 function initAgeGate() {
@@ -92,7 +99,6 @@ function selectCategory(catId) {
   renderCategoryPills();
   renderCatalog();
 
-  // Rolar suavemente para o catálogo se clicou na pílula
   const catalogEl = document.getElementById("catalog-section");
   if (catalogEl) {
     const yOffset = -70;
@@ -106,7 +112,6 @@ function renderCatalog() {
   const catalogContainer = document.getElementById("catalog-products-container");
   if (!catalogContainer || typeof PRODUCTS === "undefined") return;
 
-  // Filtrar produtos
   let filtered = PRODUCTS.filter(product => {
     const matchesCat = currentCategory === "todos" || product.category === currentCategory;
     const matchesSearch = currentSearchTerm === "" ||
@@ -129,7 +134,6 @@ function renderCatalog() {
     return;
   }
 
-  // Se estiver exibindo "todos" e sem busca, agrupar por vitrines de categorias
   if (currentCategory === "todos" && currentSearchTerm === "") {
     const categoryShelves = CATEGORIES.filter(c => c.id !== "todos");
 
@@ -156,7 +160,6 @@ function renderCatalog() {
       `;
     }).join("");
   } else {
-    // Grid contínuo para busca ou categoria selecionada
     catalogContainer.innerHTML = `
       <div class="products-grid">
         ${filtered.map(product => renderProductCardHTML(product)).join("")}
@@ -165,12 +168,10 @@ function renderCatalog() {
   }
 }
 
-// Gera o HTML de um Card de Produto com controle sincronizado de quantidade
 function renderProductCardHTML(product) {
-  const inCartItem = cart.items.find(i => i.id === product.id);
+  const inCartItem = (typeof cart !== "undefined" && cart.items) ? cart.items.find(i => i.id === product.id) : null;
   const qtyInCart = inCartItem ? inCartItem.qty : 0;
 
-  // Botão dinâmico: Adicionar ou Seletor de Quantidade direto no card
   const actionButtonHTML = qtyInCart > 0 ? `
     <div class="card-qty-control">
       <button type="button" class="card-qty-btn" onclick="cart.updateQuantity('${product.id}', ${qtyInCart - 1})" aria-label="Diminuir quantidade">-</button>
@@ -204,7 +205,6 @@ function renderProductCardHTML(product) {
   `;
 }
 
-// --- BUSCA E FILTROS EM TEMPO REAL ---
 function initSearchAndFilters() {
   const searchInput = document.getElementById("search-products");
   const clearBtn = document.getElementById("search-clear-btn");

@@ -791,13 +791,14 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+  animation: autoDismissSplash 0.4s ease-out 1.2s forwards;
   pointer-events: all;
 }
 
 #splash-screen.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 #splash-screen .splash-logo {
@@ -813,4 +814,12 @@ h1, h2, h3, h4, h5, h6 {
   0% { transform: scale(0.96); opacity: 0.85; }
   50% { transform: scale(1.03); opacity: 1; }
   100% { transform: scale(0.96); opacity: 0.85; }
+}
+
+@keyframes autoDismissSplash {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
