@@ -6,16 +6,6 @@
 let currentCategory = "todos";
 let currentSearchTerm = "";
 
-const CATEGORIES = [
-  { id: "todos", name: "Todos os Produtos", icon: "⚡" },
-  { id: "combos", name: "Combos & Kits", icon: "🔥" },
-  { id: "cervejas", name: "Cervejas Geladas", icon: "❄️" },
-  { id: "destilados", name: "Whiskies & Destilados", icon: "🥃" },
-  { id: "vinhos", name: "Vinhos & Espumantes", icon: "🍷" },
-  { id: "sem-alcool", name: "Energéticos & Refrigerantes", icon: "⚡" },
-  { id: "gelo-petiscos", name: "Gelo & Petiscos", icon: "🧊" }
-];
-
 function startApp() {
   // SPLASH SCREEN LOGIC
   const splash = document.getElementById("splash-screen");
