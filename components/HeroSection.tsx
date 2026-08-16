@@ -1,13 +1,16 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Zap, ShoppingCart, Snowflake, Sparkles } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { PRODUCTS } from "@/data/products";
 import { STORE_CONFIG } from "@/data/config";
 
 export default function HeroSection() {
   const { addItem, items, updateQuantity } = useCart();
   const highlightId = "combo-gin-tanqueray";
+  const highlightProduct = PRODUCTS.find((p) => p.id === highlightId) || PRODUCTS[0];
   const inCartItem = items.find((i) => i.id === highlightId);
 
   const scrollToCatalog = () => {
@@ -72,31 +75,59 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* CARD DESTAQUE MODULAR SUBZERO */}
+          {/* CARD DESTAQUE MODULAR SUBZERO COM FOTO */}
           <div className="lg:col-span-5">
-            <div className="bg-white border border-zinc-200 rounded-3xl p-5 sm:p-7 shadow-card hover:shadow-cardHover transition-shadow duration-200 relative overflow-hidden">
+            <div className="bg-white border border-zinc-200 rounded-3xl p-4 sm:p-5 shadow-card hover:shadow-cardHover transition-shadow duration-200 relative overflow-hidden group/card">
               
-              <div className="flex items-center justify-between gap-2 mb-3.5">
-                <span className="inline-flex items-center gap-1.5 bg-brand-ice text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide">
-                  <Snowflake className="w-3.5 h-3.5 animate-spin" /> Destaque Subzero -2°C
-                </span>
-                <span className="text-xs font-black text-brand-red bg-brand-redLight px-2.5 py-0.5 rounded-lg">
-                  Economize R$ 30
-                </span>
+              {/* FOTO DO PRODUTO EM DESTAQUE */}
+              <div className="relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-4 bg-zinc-950 flex items-center justify-center">
+                <Image
+                  src={highlightProduct.image}
+                  alt={highlightProduct.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  className="object-cover group-hover/card:scale-105 transition-transform duration-500"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+                {/* Badges sobrepostas na imagem */}
+                <div className="absolute top-3 left-3">
+                  <span className="inline-flex items-center gap-1.5 bg-brand-ice/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide shadow-md">
+                    <Snowflake className="w-3.5 h-3.5 animate-spin" /> Destaque -2°C
+                  </span>
+                </div>
+
+                <div className="absolute top-3 right-3">
+                  <span className="text-xs font-black text-white bg-brand-red px-2.5 py-1 rounded-full shadow-md">
+                    Economize R$ 30
+                  </span>
+                </div>
+
+                <div className="absolute bottom-3 left-3 right-3">
+                  <span className="inline-block text-[11px] font-bold text-amber-300 bg-black/60 backdrop-blur-md px-2.5 py-0.5 rounded-md">
+                    {highlightProduct.volume}
+                  </span>
+                </div>
               </div>
 
-              <h2 className="text-lg sm:text-xl font-black text-brand-black font-heading leading-tight mb-2">
-                Combo Gin Tanqueray + 4 Red Bull
+              {/* DETALHES DO PRODUTO */}
+              <h2 className="text-lg sm:text-xl font-black text-brand-black font-heading leading-tight mb-1.5">
+                {highlightProduct.name}
               </h2>
 
-              <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-5">
-                1 Gin London Dry 750ml + 4 Latas Red Bull + 2 Gelos de Coco saborizados prontos para servir.
+              <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-4">
+                {highlightProduct.description}
               </p>
 
-              <div className="flex items-center justify-between pt-3 border-t border-zinc-100 mb-4">
+              <div className="flex items-center justify-between pt-3 border-t border-zinc-100 mb-3.5">
                 <div>
-                  <span className="text-xs text-zinc-400 line-through block font-bold">R$ 169,90</span>
-                  <span className="text-2xl sm:text-3xl font-black text-brand-red font-heading">R$ 139,90</span>
+                  <span className="text-xs text-zinc-400 line-through block font-bold">
+                    R$ {highlightProduct.originalPrice?.toFixed(2).replace(".", ",")}
+                  </span>
+                  <span className="text-2xl sm:text-3xl font-black text-brand-red font-heading">
+                    R$ {highlightProduct.price.toFixed(2).replace(".", ",")}
+                  </span>
                 </div>
 
                 {inCartItem ? (
@@ -123,7 +154,7 @@ export default function HeroSection() {
                   <button
                     type="button"
                     onClick={() => addItem(highlightId)}
-                    className="inline-flex items-center gap-1.5 px-5 py-3 bg-brand-red hover:bg-brand-redHover text-white rounded-xl font-black text-sm transition-all duration-150 shadow-redGlow active:scale-95"
+                    className="inline-flex items-center gap-1.5 px-5 py-3 bg-brand-red hover:bg-brand-redHover text-white rounded-xl font-black text-sm transition-all duration-150 shadow-redGlow active:scale-95 cursor-pointer"
                   >
                     <span>+ Adicionar</span>
                   </button>

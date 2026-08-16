@@ -63,7 +63,6 @@ export default function ProductGrid({
               {/* CABEÇALHO DA PRATELEIRA */}
               <div className="flex items-center justify-between border-b-2 border-zinc-200 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <span className="text-xl leading-none">{category.icon}</span>
                   <h2 className="text-lg sm:text-xl font-black text-brand-black font-heading tracking-tight">
                     {category.name}
                   </h2>

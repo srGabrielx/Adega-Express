@@ -13,12 +13,21 @@ export default function Footer() {
           
           {/* SOBRE A LOJA */}
           <div className="space-y-3">
-            <h3 className="text-xl font-black tracking-tight font-heading text-white">
-              ADEGA <span className="text-brand-red">{STORE_CONFIG.brandAccent}</span>
-            </h3>
-            <p className="text-xs font-bold text-red-200">
-              {STORE_CONFIG.tagline}
-            </p>
+            <div className="flex items-center gap-3">
+              <img
+                src="/logo.png"
+                alt="Logo Adega Express"
+                className="w-12 h-12 rounded-xl object-cover border border-amber-500/40 shadow-lg shrink-0"
+              />
+              <div>
+                <h3 className="text-xl font-black tracking-tight font-heading text-white">
+                  ADEGA <span className="text-brand-red">{STORE_CONFIG.brandAccent}</span>
+                </h3>
+                <p className="text-xs font-bold text-amber-400">
+                  {STORE_CONFIG.tagline}
+                </p>
+              </div>
+            </div>
             <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
               O seu delivery express de bebidas favorito com atendimento ultrarrápido e entrega de cervejas estalando a -2°C em Marabá - PA.
             </p>

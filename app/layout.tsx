@@ -21,12 +21,22 @@ export const metadata: Metadata = {
     "Peça cervejas trincando a -2°C, combos de Gin e Whisky, energéticos e petiscos com entrega ultrarrápida em até 15 minutos em Marabá - PA.",
   manifest: "/manifest.json",
   icons: {
-    apple: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=192&q=80",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "Adega Express - Delivery em 15 Minutos",
     description: "Cervejas a -2°C, combos e destilados entregues na sua porta.",
     type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Logo Adega Express",
+      },
+    ],
   },
 };
 

@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { ShoppingBag, Clock, Beer } from "lucide-react";
+import Image from "next/image";
+import { ShoppingBag, Clock } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { STORE_CONFIG } from "@/data/config";
 
@@ -18,11 +19,18 @@ export default function Header() {
           {/* LOGO DA MARCA */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group shrink-0 select-none"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0 select-none"
             title="Adega Express - Página Inicial"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-brand-red text-white rounded-xl flex items-center justify-center shadow-redGlow group-hover:scale-105 transition-transform duration-200 shrink-0">
-              <Beer className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-200 shrink-0 border border-amber-400/40 bg-zinc-950 flex items-center justify-center">
+              <Image
+                src="/logo.png"
+                alt="Logo Adega Express"
+                width={48}
+                height={48}
+                priority
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col min-w-0">
               <div className="flex items-center gap-1 leading-none font-black text-lg sm:text-xl text-brand-black tracking-tight font-heading">

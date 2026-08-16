@@ -28,7 +28,6 @@ export default function CategoryFilter({
                   : "bg-white text-zinc-800 border-zinc-200 hover:border-zinc-400 hover:bg-zinc-100 shadow-sm"
               }`}
             >
-              <span className="text-base leading-none">{cat.icon}</span>
               <span>{cat.name}</span>
               {cat.tag && !isActive && (
                 <span className="hidden md:inline-block text-[10px] font-bold bg-brand-iceLight text-brand-ice px-1.5 py-0.5 rounded-full">
