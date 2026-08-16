@@ -25,6 +25,7 @@ interface CartContextType {
   getGrandTotal: () => number;
   orders: Order[];
   saveOrder: (customer: CustomerInfo, paymentMethod: "pix" | "cartao_maquininha" | "dinheiro", changeFor?: string, notes?: string) => Order;
+  updateOrderStatus: (orderId: string, newStatus: Order["status"]) => void;
   toasts: ToastMessage[];
   showToast: (message: string, type?: "success" | "info" | "error") => void;
   removeToast: (id: number) => void;
@@ -227,6 +228,23 @@ export function CartProvider({ children }: { children: ReactNode }) {
     return newOrder;
   };
 
+  const updateOrderStatus = (orderId: string, newStatus: Order["status"]) => {
+    setOrders((prev) => {
+      const updated = prev.map((o) =>
+        o.id === orderId ? { ...o, status: newStatus } : o
+      );
+      try {
+        localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(updated));
+      } catch (e) {
+        console.error("Erro ao atualizar status do pedido:", e);
+      }
+      return updated;
+    });
+    
+    const statusText = newStatus === "preparando" ? "Em Preparação" : newStatus === "em_rota" ? "Saiu para Entrega" : "Entregue";
+    showToast(`Status do pedido #${orderId} alterado para ${statusText}`, "success");
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -243,6 +261,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         getGrandTotal,
         orders,
         saveOrder,
+        updateOrderStatus,
         toasts,
         showToast,
         removeToast,
